@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ปิยวัฒน์ Confirm</title>
+  <meta name="description" content="นำไปต่อยอดอนาคตของธุรกิจที่ยิ่งใหญ้" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Prompt', 'ui-sans-serif', 'system-ui'] },
+          colors: { brand: { DEFAULT: '#0B6FB8', 50:'#eff6ff', 100:'#dbeafe', 600:'#0B6FB8', 700:'#0a5fa0' } }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 backdrop-blur supports-backdrop-blur:bg-white/60 bg-white/80 dark:bg-slate-900/80 shadow-sm animate-fade-in-down">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 rounded-2xl bg-brand flex items-center justify-center text-white font-bold transition-transform group-hover:rotate-12">โลโก้</div>
+        <span class="font-semibold">Piyawat confirm</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#features" class="hover:text-brand transition-colors">จุดเด่น</a>
+        <a href="#portfolio" class="hover:text-brand transition-colors">ผลงาน</a>
+        <a href="#pricing" class="hover:text-brand transition-colors">แพ็กเกจ</a>
+        <a href="#contact" class="hover:text-brand transition-colors">@Piyawat211149@gmail.com เบอร์โทร 0625329704</a>
+        <button id="toggle-dark" class="px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 transition-colors hover:bg-slate-200 dark:hover:bg-slate-700">โหมดมืด</button>
+      </nav>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-slate-300 dark:border-slate-700">เมนู</button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 dark:border-slate-800 animate-fade-in">
+      <nav class="px-4 py-3 space-y-2 bg-white dark:bg-slate-900">
+        <a href="#features" class="block py-2 hover:text-brand transition-colors">จุดเด่น</a>
+        <a href="#portfolio" class="block py-2 hover:text-brand transition-colors">ผลงาน</a>
+        <a href="#pricing" class="block py-2 hover:text-brand transition-colors">แพ็กเกจ</a>
+        <a href="#contact" class="block py-2 hover:text-brand transition-colors">@Piyawat211149@gmail.com เบอร์โทร 0625329704</a>
+        <button id="toggle-dark-m" class="mt-2 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">โหมดมืด</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden animate-fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="inline-block text-brand font-semibold tracking-wide animate-bounce">✨ พร้อมเริ่มวันนี้</span>
+        <h1 class="mt-3 text-3xl sm:text-5xl font-bold leading-tight animate-fade-in-up">เว็บไซต์สวย คมชัด โหลดไว<br class="hidden sm:block"/>ปรับได้ครบในไฟล์เดียว</h1>
+        <p class="mt-4 text-slate-600 dark:text-slate-300 animate-fade-in">เปลี่ยนข้อความ/รูป/สี ได้ทันที เหมาะสำหรับพอร์ตโฟลิโอ ร้านค้าเล็ก ๆ หรือหน้าแลนดิ้งโปรโมตแคมเปญ</p>
+        <div class="mt-6 flex gap-3 animate-fade-in-up">
+          <a href="#contact" class="px-5 py-3 rounded-xl bg-brand text-white font-semibold shadow hover:bg-brand-700 transition-transform hover:scale-105">เริ่มใช้งาน</a>
+          <a href="#features" class="px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">ดูรายละเอียด</a>
+        </div>
+        <ul class="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-600 dark:text-slate-300 animate-fade-in">
+          <li>✅ ตอบสนองทุกหน้าจอ</li>
+          <li>✅ โหลดไว ด้วย Tailwind</li>
+          <li>✅ โหมดมืดในคลิกเดียว</li>
+          <li>✅ พร้อมแบบฟอร์มติดต่อ</li>
+        </ul>
+      </div>
+      <div class="relative animate-fade-in-up">
+        <div class="aspect-[16/10] rounded-2xl bg-gradient-to-tr from-brand/20 to-indigo-200 dark:from-brand/30 dark:to-indigo-500 shadow-xl"></div>
+        <div class="absolute -bottom-6 -left-6 w-28 h-28 rounded-2xl bg-white/70 dark:bg-slate-800/70 backdrop-blur border border-slate-200 dark:border-slate-700 shadow flex items-center justify-center text-sm animate-fade-in">ใส่ภาพผลงาน</div>
+        <div class="absolute -top-6 -right-6 w-36 h-20 rounded-2xl bg-white/70 dark:bg-slate-800/70 backdrop-blur border border-slate-200 dark:border-slate-700 shadow flex items-center justify-center text-sm animate-fade-in">สกรีนช็อตแอป</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-16 sm:py-24 bg-white dark:bg-slate-900 animate-fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold">จุดเด่น</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">เน้นใช้งานจริง ปรับแต่งได้ทันที ไม่ง้อเครื่องมือซับซ้อน</p>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40 hover:scale-105 transition-transform animate-fade-in-up">
+          <h3 class="font-semibold">ไฟล์เดียวจบ</h3>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">HTML + Tailwind CDN + JS สั้น ๆ ลอกไปใช้ได้เลย</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40 hover:scale-105 transition-transform animate-fade-in-up delay-200">
+          <h3 class="font-semibold">เร็ว & ตอบสนองดี</h3>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">ดีไซน์ด้วย Utility Class ทำให้โหลดไวและจัดเลย์เอาต์ง่าย</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40 hover:scale-105 transition-transform animate-fade-in-up delay-500">
+          <h3 class="font-semibold">พร้อมขยาย</h3>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">ต่อยอดเป็น Next.js / React ได้ภายหลังโดยคงสไตล์เดิม</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio / Gallery -->
+  <section id="portfolio" class="py-16 sm:py-24 animate-fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold">ผลงานล่าสุด</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">เปลี่ยนภาพและข้อความได้ตามจริง</p>
+        </div>
+        <a href="#contact" class="hidden sm:inline-block px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">ขอใบเสนอราคา</a>
+      </div>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- การ์ดผลงาน 1 -->
+        <article class="group rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:scale-105 transition-transform animate-fade-in-up">
+          <div class="aspect-[16/10] bg-slate-200/60 dark:bg-slate-700/60 group-hover:opacity-90 transition"></div>
+          <div class="p-4">
+            <h3 class="font-semibold">โปรเจกต์ A</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300">คำอธิบายสั้น ๆ ของงาน</p>
+          </div>
+        </article>
+        <!-- 2 -->
+        <article class="group rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:scale-105 transition-transform animate-fade-in-up delay-200">
+          <div class="aspect-[16/10] bg-slate-200/60 dark:bg-slate-700/60"></div>
+          <div class="p-4">
+            <h3 class="font-semibold">โปรเจกต์ B</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300">รายละเอียดภาพรวมของงาน</p>
+          </div>
+        </article>
+        <!-- 3 -->
+        <article class="group rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:scale-105 transition-transform animate-fade-in-up delay-500">
+          <div class="aspect-[16/10] bg-slate-200/60 dark:bg-slate-700/60"></div>
+          <div class="p-4">
+            <h3 class="font-semibold">โปรเจกต์ C</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300">จุดเด่นที่น่าสนใจ</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-16 sm:py-24 bg-white dark:bg-slate-900 animate-fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center">แพ็กเกจ</h2>
+      <p class="mt-2 text-center text-slate-600 dark:text-slate-300">เลือกแผนที่เหมาะกับคุณ</p>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <!-- Basic -->
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40 p-6 flex flex-col hover:scale-105 transition-transform animate-fade-in-up">
+          <h3 class="font-semibold">Basic</h3>
+          <p class="mt-2 text-3xl font-bold">฿2,900</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+            <li>หน้าเดียว (Landing)</li>
+            <li>ปรับสี/โลโก้/รูป</li>
+            <li>รองรับมือถือ</li>
+          </ul>
+          <a href="#contact" class="mt-auto inline-block text-center px-4 py-2 rounded-xl bg-brand text-white hover:bg-brand-700 transition-colors">เริ่ม</a>
+        </div>
+        <!-- Standard -->
+        <div class="rounded-2xl border-2 border-brand bg-white dark:bg-slate-800 p-6 shadow flex flex-col hover:scale-105 transition-transform animate-fade-in-up delay-200">
+          <h3 class="font-semibold">Standard</h3>
+          <p class="mt-2 text-3xl font-bold">฿6,900</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+            <li>หลายหน้า (3-5 หน้า)</li>
+            <li>ฟอร์มติดต่อ/แชต</li>
+            <li>ติด Analytics</li>
+          </ul>
+          <a href="#contact" class="mt-auto inline-block text-center px-4 py-2 rounded-xl bg-brand text-white hover:bg-brand-700 transition-colors">เลือกแพ็กนี้</a>
+        </div>
+        <!-- Pro -->
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40 p-6 flex flex-col hover:scale-105 transition-transform animate-fade-in-up delay-500">
+          <h3 class="font-semibold">Pro</h3>
+          <p class="mt-2 text-3xl font-bold">฿12,900</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+            <li>เชื่อมต่อฐานข้อมูล/แอดมิน</li>
+            <li>ความเร็ว & SEO ขั้นสูง</li>
+            <li>ดูแลหลังบ้าน 1 เดือน</li>
+          </ul>
+          <a href="#contact" class="mt-auto inline-block text-center px-4 py-2 rounded-xl bg-brand text-white hover:bg-brand-700 transition-colors">ติดต่อเรา</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 sm:py-24 animate-fade-in">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center">ติดต่อเรา</h2>
+      <p class="mt-2 text-center text-slate-600 dark:text-slate-300">กรอกข้อมูล แล้วระบบจะสร้างลิงก์อีเมลอัตโนมัติ</p>
+      <form id="contactForm" class="mt-8 grid sm:grid-cols-2 gap-4 bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 animate-fade-in-up">
+        <div>
+          <label class="text-sm text-slate-600 dark:text-slate-300">ชื่อ</label>
+          <input id="name" class="mt-1 w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent" placeholder="ชื่อของคุณ" required>
+        </div>
+        <div>
+          <label class="text-sm text-slate-600 dark:text-slate-300">อีเมล</label>
+          <
+<script>
+  // ---- THEME: apply saved & system preference ----
+  (function applySavedTheme(){
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch(e) {}
+  })();
+
+  // ---- ELEMENTS ----
+  var btnDark  = document.getElementById('toggle-dark');
+  var btnDarkM = document.getElementById('toggle-dark-m');
+  var menuBtn  = document.getElementById('menuBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  // ---- THEME: toggle + persist ----
+  function toggleTheme(){
+    var root = document.documentElement;
+    root.classList.toggle('dark');
+    try { localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); } catch(e) {}
+  }
+  if (btnDark)  btnDark.addEventListener('click', toggleTheme);
+  if (btnDarkM) btnDarkM.addEventListener('click', toggleTheme);
+
+  // ---- MOBILE MENU ----
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', function(){
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>
